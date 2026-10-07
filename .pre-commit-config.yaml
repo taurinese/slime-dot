@@ -1,6 +1,15 @@
 # Hooks lancés à chaque `git commit` (installés avec `pre-commit install`).
 # Garder la version de gdtoolkit alignée avec celle installée en local et en CI.
+# Les addons tiers (addons/) ne sont pas notre code : on ne les lint/formate pas.
+exclude: ^addons/
 repos:
+  # gdformat d'abord : sous Windows il réécrit les fichiers en CRLF,
+  # mixed-line-ending (plus bas) les repasse ensuite en LF.
+  - repo: https://github.com/Scony/godot-gdscript-toolkit
+    rev: 4.5.0
+    hooks:
+      - id: gdformat
+      - id: gdlint
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -9,8 +18,3 @@ repos:
       - id: mixed-line-ending
         args: [--fix=lf]
       - id: check-yaml
-  - repo: https://github.com/Scony/godot-gdscript-toolkit
-    rev: 4.5.0
-    hooks:
-      - id: gdformat
-      - id: gdlint

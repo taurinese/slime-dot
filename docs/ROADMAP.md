@@ -11,7 +11,7 @@
 - [x] `git init`, `.gitignore` Godot, `.gitattributes`, arborescence
 - [x] `README.md`, ADR-0001 « Godot + GDScript », ADR-0002 « Simulation séparée de l'affichage »
 - [x] gdtoolkit + pre-commit
-- [ ] GUT + un premier test lancé en headless
+- [x] GUT + un premier test lancé en headless
 - [ ] Dépôt GitHub + workflow GitHub Actions lint + tests
 
 **Appris :**
@@ -22,6 +22,9 @@
 - Typage strict = Project Settings → Advanced → Debug → GDScript, warnings passés à Error (stockés dans `project.godot`, section `[debug]`, valeur `2`). « Exclude Addons » reste actif (défaut) pour ne pas casser sur GUT.
 - Le LSP GDScript tourne dans l'éditeur Godot (port 6005) : autocomplétion dans Cursor seulement si Godot est ouvert.
 - pre-commit ≈ Husky + lint-staged ; gdformat ≈ Prettier, gdlint ≈ ESLint. pre-commit installe ses hooks dans son propre environnement isolé (téléchargé depuis GitHub) → aligner manuellement la version de gdtoolkit (4.5.0) entre local, `.pre-commit-config.yaml` et CI. gdtoolkit 4.x = syntaxe Godot 4.
+- GUT ≈ Jest : `extends GutTest`, fonctions `test_*() -> void`, `assert_eq(obtenu, attendu, "pourquoi")`. Version 9.7.x requise pour Godot 4.7. Vendorisé dans `addons/` (pas de gestionnaire de paquets). En headless, GUT renvoie exit 1 si un test échoue (vérifié) → utilisable en CI.
+- GDScript : int / int = int tronqué (7 / 2 == 3, warning « Integer Division ») ; dès qu'un opérande est float, le résultat est float (7 / 2.0 == 3.5).
+- Cursor sous Windows écrit en CRLF et indente en espaces par défaut → réglages User `files.eol: "\n"`, `files.insertFinalNewline`, `[gdscript] editor.insertSpaces: false`. `gdformat` sous Windows réécrit aussi en CRLF → dans pre-commit, gdformat passe avant `mixed-line-ending`.
 - Git ne versionne pas les dossiers vides → fichiers `.gitkeep`. `.vscode/` est ignoré (chemins propres à la machine).
 
 ## Étape 1 — « Hello slime »

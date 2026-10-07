@@ -34,6 +34,17 @@ pre-commit install
 
 Ouvrir `project.godot` avec Godot 4.7.2 (Project Manager → **Import**), puis **F5**.
 
+## Lancer les tests
+
+Tests unitaires avec [GUT](https://github.com/bitwes/Gut) 9.7.1 (inclus dans `addons/gut/`), en headless :
+
+```bash
+Godot_v4.7.2-stable_win64_console.exe --headless --import
+Godot_v4.7.2-stable_win64_console.exe --headless -s addons/gut/gut_cmdln.gd
+```
+
+Ou depuis l'éditeur : panneau **GUT** en bas, bouton *Run All*.
+
 ## Organisation du dépôt
 
 | Dossier | Contenu |

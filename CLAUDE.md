@@ -58,7 +58,18 @@ gdformat --check src tests    # vérifie sans réécrire
 gdlint src tests              # lint
 ```
 
-_(à compléter : tests GUT, export…)_
+⚠️ Sous Windows, `gdformat` réécrit les fichiers modifiés en **CRLF**. Préférer `pre-commit run --all-files` (gdformat puis `mixed-line-ending` repasse en LF) ; les fichiers doivent être suivis par Git (`git add`) pour que pre-commit les voie.
+
+Tests (GUT **9.7.1**, vendorisé dans `addons/gut/`, config dans `.gutconfig.json`) :
+
+```bash
+Godot_v4.7.2-stable_win64_console.exe --headless --import                 # construit le cache .godot/ (1re fois, CI)
+Godot_v4.7.2-stable_win64_console.exe --headless -s addons/gut/gut_cmdln.gd  # lance tous les tests ; exit 1 si échec
+```
+
+Depuis le Bash de Claude, utiliser le chemin complet de l'exécutable (voir « Environnement »).
+
+_(à compléter : export…)_
 
 ## Règles de travail
 
