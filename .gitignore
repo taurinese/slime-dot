@@ -1,0 +1,14 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Exports (builds locaux)
+/build/
+
+# Réglages personnels de l'éditeur (chemins propres à chaque machine)
+.vscode/
+
+# Fichiers système
+Thumbs.db
+desktop.ini
+.DS_Store
