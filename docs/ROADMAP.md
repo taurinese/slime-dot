@@ -9,7 +9,7 @@
 - [x] `CLAUDE.md` + `docs/ROADMAP.md`
 - [x] Créer le projet Godot (rendu Compatibility, typage strict) + connecter Cursor (éditeur externe, LSP)
 - [x] `git init`, `.gitignore` Godot, `.gitattributes`, arborescence
-- [ ] `README.md`, ADR-0001 « Godot + GDScript », ADR-0002 « Simulation séparée de l'affichage »
+- [x] `README.md`, ADR-0001 « Godot + GDScript », ADR-0002 « Simulation séparée de l'affichage »
 - [ ] gdtoolkit + pre-commit
 - [ ] GUT + un premier test lancé en headless
 - [ ] Dépôt GitHub + workflow GitHub Actions lint + tests
