@@ -21,6 +21,15 @@ Le dépôt impose des fins de ligne LF (`.gitattributes`). Sous Windows, désact
 git config --global core.autocrlf false
 ```
 
+### Outils de qualité
+
+```bash
+python -m pip install "gdtoolkit==4.5.0" pre-commit
+pre-commit install
+```
+
+`pre-commit` lance `gdformat`, `gdlint` et quelques vérifications de base (espaces, fins de ligne, YAML) à chaque commit. Pour tout vérifier : `pre-commit run --all-files`.
+
 ## Lancer le jeu
 
 Ouvrir `project.godot` avec Godot 4.7.2 (Project Manager → **Import**), puis **F5**.

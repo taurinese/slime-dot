@@ -48,7 +48,17 @@ Arborescence cible : `.github/workflows/` · `addons/` · `assets/` · `docs/adr
 
 ## Commandes utiles
 
-_(à compléter au fur et à mesure : tests, lint, format, export…)_
+Qualité (gdtoolkit **4.5.0** installé dans le Python utilisateur ; même version dans `.pre-commit-config.yaml` et en CI) :
+
+```bash
+pre-commit install            # une fois après le clone : active les hooks sur git commit
+pre-commit run --all-files    # tous les hooks sur tout le dépôt
+gdformat src tests            # formate le GDScript (réécrit les fichiers)
+gdformat --check src tests    # vérifie sans réécrire
+gdlint src tests              # lint
+```
+
+_(à compléter : tests GUT, export…)_
 
 ## Règles de travail
 
